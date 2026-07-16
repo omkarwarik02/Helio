@@ -29,7 +29,7 @@ signUpForm = new FormGroup({
 onSubmit(){
   this.formSubmitted = true;
   if(this.signUpForm.invalid){
-    this.signUpForm.markAllAsTouched;
+    this.signUpForm.markAllAsTouched();
   }
   const data = this.signUpForm.value
   this.authService.signUp(data).subscribe({

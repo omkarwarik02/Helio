@@ -25,16 +25,9 @@
             <small
               class="text-red-500 block"
               style="min-height: 1rem;"
-              [style.visibility]="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required') 
+              [style.visibility]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid
                 ? 'visible' : 'hidden'"
-            >Email is required</small>
-
-            <small
-              class="text-red-500 block"
-              style="min-height: 1rem;"
-              [style.visibility]="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email') 
-                ? 'visible' : 'hidden'"
-            >Enter a valid email</small>
+            >{{ loginForm.get('email')?.hasError('required') ? 'Email is required' : 'Enter a valid email' }}</small>
           </div>
 
           <!-- Password Field -->

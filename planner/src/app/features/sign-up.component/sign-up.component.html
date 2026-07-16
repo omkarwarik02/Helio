@@ -11,9 +11,22 @@
     <label for="name">Name</label>
     <input pInputText id="name" type="text" formControlName="name" />
 </div>
-                    <div class="flex flex-col gap-2 username-field">
-                        <label for="email">Username</label>
-                        <input pInputText id="email" type="text" formControlName="email" />
+                    <div class="flex flex-col gap-2 email-field">
+                        <label for="email">Email</label>
+                        <input
+                          pInputText
+                          id="email"
+                          type="email"
+                          formControlName="email"
+                          [class.ng-invalid]="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched"
+                        />
+
+                        <small
+                          class="text-red-500 block"
+                          style="min-height: 1rem;"
+                          [style.visibility]="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid
+                            ? 'visible' : 'hidden'"
+                        >{{ signUpForm.get('email')?.hasError('required') ? 'Email is required' : 'Enter a valid email' }}</small>
                     </div>
                     <div class="flex flex-col gap-2 password-field">
                         <label for="password">Password</label>
